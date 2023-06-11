@@ -8,8 +8,8 @@ class AFD:
         self.q0 = q0 #estado inicial
         self.qf = qf #estado final
 
-    def __repr__(self):
-        return f"AFD({self.sigma},\n\t{self.Q},\n\t{self.delta},\n\t{self.q0},\n\t{self.qf}\n)"
+    #def __repr__(self):
+    #    return f"AFD({self.sigma},\n\t{self.Q},\n\t{self.delta},\n\t{self.q0},\n\t{self.qf}\n)"
     
     def run(self, w):
         q = self.q0
@@ -20,5 +20,5 @@ class AFD:
         return q in self.qf
     
 D0 = AFD({"a","b"},{0,1,2},{(0,"a"):0,(0,"b"):1,(1,"a"):2,(1,"b"):1,(2,"a"):2,(2,"b"):2}, 0, {0,1})
-
-print(D0.run("aa"))
+D0.run("ab")
+print(D0.run("bba"))
