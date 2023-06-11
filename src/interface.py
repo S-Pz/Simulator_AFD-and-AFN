@@ -1,20 +1,5 @@
 import tkinter as tk
-
-class AFD:
-    def __init__(self, sigma, Q, delta, q0, qf):
-        self.sigma = sigma
-        self.Q = Q
-        self.delta = delta
-        self.q0 = q0
-        self.qf = qf
-    
-    def run(self, w):
-        q = self.q0
-    
-        while w != "":
-            q = self.delta[(q, w[0])]
-            w = w[1:]
-        return q in self.qf
+from afd import AFD
 
 def create_afd():
     sigma = entry_sigma.get()
