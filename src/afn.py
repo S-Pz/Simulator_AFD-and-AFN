@@ -5,7 +5,7 @@ class AFN:
         self.Q = Q # conjunto de estados
         self.delta = delta # conjunto de transições
         self.q0 = q0 #estado inicial S
-        self.qf = qf #estado final F
+        self.qf = qf #estado final 
     
     def do_delta(self, q, x):
         try:
