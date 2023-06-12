@@ -1,9 +1,5 @@
-
 from afd import AFD
 import pandas as pd
-
-# Specify the TSV file path
-#AFD_file = 'AFD.tsv'
 
 def read_AFD(AFD_file): 
 
@@ -15,8 +11,8 @@ def read_AFD(AFD_file):
         sigma.append(column)
     sigma = sigma[1:]
     # pega os estados
-    Q  = AFD['&'].unique
-    Q = Q[1:]
+    Qs = AFD_table['&'].unique()
+    Qs = Qs[1:]
     # pega as transicoes
     delta = {}
     for index, row in AFD_table.iterrows():
@@ -32,7 +28,10 @@ def read_AFD(AFD_file):
     Qi = AFD_table.iloc[0,1] 
     Qf = AFD_table[AFD_table['&'].str.contains('\*', regex=False)]
 
-    AFD({sigma},{Q}, delta, {Qi}, {Qf})
+    AFD(sigma,Qs,delta,Qi,Qf)
     return AFD
 
-
+# Specify the TSV file path
+AFD_file = 'data.tsv'
+Dfas = read_AFD(AFD_file)
+Dfas.run("ab")
