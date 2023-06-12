@@ -1,10 +1,17 @@
+
 from afd import AFD
 import pandas as pd
+
+
 
 def read_AFD(AFD_file): 
 
     # Read the TSV file using pandas
     AFD_table = pd.read_csv(AFD_file, delimiter='\t')
+
+    #pega os estados inicial e final
+    Qi = AFD_table.iloc[0,0] 
+    Qf = AFD_table[AFD_table['&'].str.contains('\*', regex=False)]
     # pega o alfabeto
     sigma = [] 
     for column in AFD_table.columns:
@@ -24,14 +31,13 @@ def read_AFD(AFD_file):
             #aux.append(row[column])
 
         delta.update(aux)
-    #pega os estados inicial e final
-    Qi = AFD_table.iloc[0,1] 
-    Qf = AFD_table[AFD_table['&'].str.contains('\*', regex=False)]
+    print(delta)
 
-    AFD(sigma,Qs,delta,Qi,Qf)
-    return AFD
+    return AFD(sigma,Qs,delta,Qi,Qf)
 
 # Specify the TSV file path
-AFD_file = 'data.tsv'
-Dfas = read_AFD(AFD_file)
-Dfas.run("ab")
+#AFD_file = 'data.tsv'
+#D0 = read_AFD(AFD_file)
+#D0.run("ab")
+
+
