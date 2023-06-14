@@ -92,7 +92,7 @@ run_with_arg = partial(run_automaton, automaton)
 btn_run_automaton = tk.Button(window, text="Run automaton", command=run_with_arg).grid(row=13, column=1, pady=3, padx=5)
 
 # Create the result label
-lbl_result = tk.Label(window, text="")
+lbl_result = tk.Label(window, text="nada")
 lbl_result.grid(row=12, column=3, pady=3, padx=5)
 
 # Run the main loop
