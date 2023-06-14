@@ -36,8 +36,8 @@ def read_AFD(AFD_file):
     return AFD(sigma,Qs,delta,Qi,Qf)
 
 # Specify the TSV file path
-#AFD_file = 'data.tsv'
-#D0 = read_AFD(AFD_file)
-#D0.run("ab")
+AFD_file = 'data.tsv'
+D0 = read_AFD(AFD_file)
+D0.run("ab")
 
 

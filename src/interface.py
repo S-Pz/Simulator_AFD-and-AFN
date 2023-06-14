@@ -1,11 +1,10 @@
 import tkinter as tk
 from tkinter import filedialog as fd
-from functools import partial
 from afd import AFD
 from afn import AFN
 from read import read_AFD
 
-def create_afd(automaton):
+def create_afd():
     sigma = entry_sigma.get()
     Q = entry_Q.get().split(",")
     q0 = entry_q0.get()
@@ -18,29 +17,27 @@ def create_afd(automaton):
             delta[(values[0], values[1])] = values[2]
     
     automaton = AFD(sigma, Q, delta, q0, qf)
-    #lbl_result.config(text=str(automaton.run(entry_word.get())))
+    lbl_result.config(text=str(automaton.run(entry_word.get())))
 
-def create_afn(automaton):
+def create_afn():
     sigma = entry_sigma.get()
     Q = entry_Q.get().split(",")
-    q0 = entry_q0.get()
-    qf = entry_qf.get().split(",")
+    q0 = set(entry_q0.get())
+    qf = set(entry_qf.get().split(","))
 
     delta = {}
     for entry in entry_delta.get("1.0", tk.END).split("\n"):
         if entry:
             values = entry.split(",")
-            delta[(values[0], values[1])] = values[2]
+            delta[(values[0], values[1])] = set(values[2:])
 
     automaton = AFN(sigma, Q, delta, q0, qf)
-    #lbl_result.config(text=str(automaton.run(entry_word.get())))
+    lbl_result.config(text=str(automaton.run(entry_word.get())))
 
-def select_file(automaton):
+def select_file():
     filename = fd.askopenfilename()
+    print(filename)
     automaton = read_AFD(filename)
-    #lbl_result.config(text=str(automaton.run(entry_word.get())))
-
-def run_automaton(automaton):
     lbl_result.config(text=str(automaton.run(entry_word.get())))
 
 # Create the main window
@@ -72,27 +69,17 @@ lbl_word = tk.Label(window, text="Word:").grid(row=10, column=1, sticky="W", pad
 entry_word = tk.Entry(window, width=30)
 entry_word.grid(row=10, column=2, pady=3, padx=5)
 
-# just to create something
-automaton = 0
-
-# Create automaton button
-afd_with_arg = partial(create_afd, automaton)
-create_as_afd = tk.Button(window, text="Create AFD", command=afd_with_arg).grid(row=12, column=1, pady=3, padx=5)
-
-afn_with_arg = partial(create_afn, automaton)
-create_as_afn = tk.Button(window, text="Create AFN", command=afn_with_arg).grid(row=12, column=2, pady=3, padx=5)
-
 # In case user wants to import AFD or AFN as a file
-file_with_arg = partial(select_file, automaton)
-create_as_file = tk.Button(window, text="Select File", command=file_with_arg).grid(row=12, column=3, pady=3, padx=5)
+btn_open_file = tk.Button(window, text="Select File", command=select_file).grid(row=11, column=1, pady=3, padx=5)
 
-# Run automaton
-
-run_with_arg = partial(run_automaton, automaton)
-btn_run_automaton = tk.Button(window, text="Run automaton", command=run_with_arg).grid(row=13, column=1, pady=3, padx=5)
+# Create the run button
+btn_run_as_afd = tk.Button(window, text="Run as AFD", command=create_afd).grid(row=12, column=1, pady=3, padx=5)
+#btn_run_as_afd.pack()
+btn_run_as_afn = tk.Button(window, text="Run as AFN", command=create_afn).grid(row=12, column=2, pady=3, padx=5)
+#btn_run_as_afn.pack()
 
 # Create the result label
-lbl_result = tk.Label(window, text=" ")
+lbl_result = tk.Label(window, text="")
 lbl_result.grid(row=12, column=3, pady=3, padx=5)
 
 # Run the main loop
