@@ -42,7 +42,7 @@ def select_file():
 
 # Create the main window
 window = tk.Tk()
-window.title("Automaton Interface UwU")
+window.title("Automaton Interface")
 
 # Create labels and entry fields
 lbl_sigma = tk.Label(window, text="Sigma:").grid(row=1, column=1, sticky="W", pady=3, padx=5)
