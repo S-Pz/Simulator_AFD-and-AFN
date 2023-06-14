@@ -23,10 +23,10 @@ class AFN:
             P = Pnew
         return (P & self.qf) != set({})
     
-N0 = AFN({"0","1"},{0,1,2},{(0,"0"):{0},(0,"1"):{0,1},(1,"0"):{2},(1,"1"):{2}},{0},{2})
+#N0 = AFN({"0","1"},{0,1,2},{(0,"0"):{0},(0,"1"):{0,1},(1,"0"):{2},(1,"1"):{2}},{0},{2})
 
-print(N0.run("11"))#true
-print(N0.run("01"))#false
-print(N0.run("10"))#true
-print(N0.run("00"))#false
-print(N0.run("11"))#true
+#print(N0.run("11"))#true
+#print(N0.run("01"))#false
+#print(N0.run("10"))#true
+#print(N0.run("00"))#false
+#print(N0.run("11"))#true
