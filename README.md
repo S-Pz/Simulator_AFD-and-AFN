@@ -6,3 +6,4 @@ Simulador de autômatos finitos determinísticos (AFD) e autômatos finitos não
 <p>As próximas linhas contem as transicões em si</p>
 <p>O simbolo '!' antes do estado indica que ele é um estado inicial</p>
 <p>O simbolo '*' antes do estado indica que ele é um estado final</p>
+<p>Arquivo de Exemplo: data.tsv</p>
