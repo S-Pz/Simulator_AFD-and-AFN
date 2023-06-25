@@ -15,6 +15,7 @@ class AFN:
         
     def run(self,w):
         P = self.q0
+
         while w!="":
             Pnew = set({})
             for q in P:
@@ -23,7 +24,7 @@ class AFN:
             P = Pnew
         return (P & self.qf) != set({})
     
-#N0 = AFN({"0","1"},{0,1,2},{(0,"0"):{0},(0,"1"):{0,1},(1,"0"):{2},(1,"1"):{2}},{0},{2})
+N0 = AFN({"0","1"},{0,1,2},{(0,"0"):{0},(0,"1"):{0,1},(1,"0"):{2},(1,"1"):{2}},{0},{2})
 
 #print(N0.run("11"))#true
 #print(N0.run("01"))#false

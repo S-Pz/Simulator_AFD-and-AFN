@@ -7,3 +7,8 @@ Simulador de autômatos finitos determinísticos (AFD) e autômatos finitos não
 <p>O simbolo '!' antes do estado indica que ele é um estado inicial</p>
 <p>O simbolo '*' antes do estado indica que ele é um estado final</p>
 <p>Arquivo de Exemplo: data.tsv</p>
+
+# Entrada Manual
+## Como fazer a entrada manual
+
+#N0 = AFN({"0","1"},{0,1,2},{(0,"0"):{0},(0,"1"):{0,1},(1,"0"):{2},(1,"1"):{2}},{0},{2})
