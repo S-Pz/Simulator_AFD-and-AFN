@@ -3,6 +3,7 @@ from tkinter import filedialog as fd
 from afd import AFD
 from afn import AFN
 from read import read_AFD
+from read import read_AFN
 
 class INTERFACE:
 
@@ -48,6 +49,7 @@ class INTERFACE:
 
     def select_file_AFN(self):
         filename = fd.askopenfilename()
+        self.afn = read_AFN(filename)
         lbl_automaton.config(text="AFN is ready!")
 
     def run_afd(self):
