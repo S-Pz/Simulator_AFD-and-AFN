@@ -106,26 +106,26 @@ def read_AFN(AFN_file):
     return AFN(sigma, Qs, delta, Qi, Qf)
 
 # Specify the TSV file path
-AFD_file = 'data.tsv'
-D1 = read_AFD(AFD_file)
-print(D1.sigma)
-print(D1.Q)
-print(D1.delta)
-print(D1.q0)
-print(D1.qf)
-print("___________")
-AFN_file = 'date2.tsv'
-D0 = read_AFN(AFN_file)
-print(D0.sigma)
-print(D0.Q)
-print(D0.delta)
-print(D0.q0)
-print(D0.qf)
+#AFD_file = 'data.tsv'
+#D1 = read_AFD(AFD_file)
+#print(D1.sigma)
+#print(D1.Q)
+#print(D1.delta)
+#print(D1.q0)
+#print(D1.qf)
+#print("___________")
+#AFN_file = 'date2.tsv'
+#D0 = read_AFN(AFN_file)
+#print(D0.sigma)
+#print(D0.Q)
+#print(D0.delta)
+#print(D0.q0)
+#print(D0.qf)
 
-print(D0.run("11"))#true
-print(D0.run("01"))#false
-print(D0.run("10"))#true
-print(D0.run("00"))#false
+#print(D0.run("11"))#true
+#print(D0.run("01"))#false
+#print(D0.run("10"))#true
+#print(D0.run("00"))#false
 
 
 #print(D0.delta)
